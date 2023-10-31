@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjy8gald7xw3i"]
+
+[ext_resource type="Texture2D" uid="uid://bht25v6iqhxea" path="res://UI/k02.png" id="1_1tpp0"]
+[ext_resource type="Script" path="res://UI/气泡.gd" id="1_36kpb"]
+
+[sub_resource type="Animation" id="Animation_lv2sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_6qvc1"]
+resource_name = "气泡出现"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.14, 0.22, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.6, 1.2), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tiw1l"]
+_data = {
+"RESET": SubResource("Animation_lv2sh"),
+"气泡出现": SubResource("Animation_6qvc1")
+}
+
+[node name="气泡" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_36kpb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tiw1l")
+}
+
+[node name="Control" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+offset_left = -12.8571
+offset_top = -22.8571
+offset_right = 13.1429
+offset_bottom = 0.142857
+pivot_offset = Vector2(13, 23)
+texture = ExtResource("1_1tpp0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

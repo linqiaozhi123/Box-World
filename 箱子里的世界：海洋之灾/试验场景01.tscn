@@ -1,0 +1,224 @@
+[gd_scene load_steps=19 format=3 uid="uid://3a77jovn4iix"]
+
+[ext_resource type="Texture2D" uid="uid://cvcwlcgefvfjb" path="res://背景/纸箱3.png" id="1_l0i0w"]
+[ext_resource type="Texture2D" uid="uid://cxyur788pdool" path="res://背景/tile01.png" id="2_uanbh"]
+[ext_resource type="Script" path="res://试验tilemap.gd" id="3_qvr47"]
+[ext_resource type="Shader" path="res://时间文本02.gdshader" id="3_wkuyf"]
+[ext_resource type="Script" path="res://游玩计时器文本.gd" id="4_30q3n"]
+[ext_resource type="PackedScene" uid="uid://dagj51uiu1f8" path="res://UI/玩家鼠标选中区域01.tscn" id="4_gmdm2"]
+[ext_resource type="Script" path="res://视角移动.gd" id="6_avk3p"]
+[ext_resource type="PackedScene" uid="uid://bftyppkwjbprq" path="res://怪物棋子/怪物01.tscn" id="7_d1q7j"]
+[ext_resource type="PackedScene" uid="uid://cfq2agu2r8gi6" path="res://玩家棋子/西部牛仔.tscn" id="9_jidks"]
+[ext_resource type="AudioStream" uid="uid://cwgf0a6x442sm" path="res://声音/背景音乐.mp3" id="10_jrxxp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_yawyf"]
+vertices = PackedVector2Array(8, 8, 0, 8, -8, 8, -8, -8, 0, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8, 8, 8, 8, -8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4hhmo"]
+vertices = PackedVector2Array(8, 8, 0, 8, -8, 8, -8, -8, 0, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8, 8, 8, 8, -8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_l1nyg"]
+vertices = PackedVector2Array(8, 8, 0, 8, -8, 8, -8, -8, 0, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8, 8, 8, 8, -8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j8v6h"]
+vertices = PackedVector2Array(8, 8, 0, 8, -8, 8, -8, -8, 0, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8, 8, 8, 8, -8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_06drx"]
+texture = ExtResource("2_uanbh")
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+4:4/0 = 0
+4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:4/0/physics_layer_0/angular_velocity = 0.0
+3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_yawyf")
+0:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_4hhmo")
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_j8v6h")
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8, 8, 8, 8, -8)
+0:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_l1nyg")
+
+[sub_resource type="TileSet" id="TileSet_3skog"]
+tile_shape = 2
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+navigation_layer_1/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_06drx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jmsn"]
+shader = ExtResource("3_wkuyf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq58q"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -662.0
+offset_top = -372.5
+offset_right = 662.0
+offset_bottom = 372.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(662, 372)
+texture = ExtResource("1_l0i0w")
+
+[node name="TileMap" type="TileMap" parent="TextureRect"]
+tile_set = SubResource("TileSet_3skog")
+format = 2
+layer_1/name = "土地一层"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/navigation_enabled = true
+layer_1/tile_data = PackedInt32Array(1376295, 0, 0, 1376296, 0, 0, 1310760, 0, 0, 1376294, 0, 0, 1376297, 0, 0, 1376293, 0, 1, 1310758, 0, 1, 1310759, 0, 1, 1245223, 0, 1, 1245224, 0, 1, 1310761, 0, 1, 1310762, 0, 1, 1376298, 0, 1, 1441834, 0, 1, 1441833, 0, 1, 1441832, 0, 1, 1441831, 0, 1, 1441830, 0, 1)
+script = ExtResource("3_qvr47")
+
+[node name="玩家鼠标选中区域01" parent="TextureRect/TileMap" instance=ExtResource("4_gmdm2")]
+
+[node name="游玩计时器文本" type="SubViewportContainer" parent="TextureRect"]
+material = SubResource("ShaderMaterial_8jmsn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -296.95
+offset_right = 215.0
+offset_bottom = -226.95
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+script = ExtResource("4_30q3n")
+
+[node name="SubViewport" type="SubViewport" parent="TextureRect/游玩计时器文本"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(430, 70)
+render_target_update_mode = 4
+
+[node name="Timer" type="Timer" parent="TextureRect/游玩计时器文本/SubViewport"]
+wait_time = 0.2
+autostart = true
+
+[node name="Label" type="Label" parent="TextureRect/游玩计时器文本/SubViewport"]
+self_modulate = Color(1, 1, 1, 0.27451)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -35.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="摄像机移动" type="CharacterBody2D" parent="TextureRect"]
+position = Vector2(648, 341.195)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("6_avk3p")
+
+[node name="Camera2D" type="Camera2D" parent="TextureRect/摄像机移动"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/摄像机移动"]
+visible = false
+shape = SubResource("RectangleShape2D_eq58q")
+
+[node name="烬" parent="TextureRect" instance=ExtResource("9_jidks")]
+position = Vector2(640, 344.5)
+
+[node name="怪物01" parent="TextureRect" instance=ExtResource("7_d1q7j")]
+offset_left = 672.0
+offset_top = 343.5
+offset_right = 672.0
+offset_bottom = 343.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_jrxxp")
+volume_db = -15.0
+autoplay = true
+max_polyphony = 12
+
+[connection signal="timeout" from="TextureRect/游玩计时器文本/SubViewport/Timer" to="TextureRect/游玩计时器文本" method="_on_timer_timeout"]
